@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Car {
+private:
+    string model;
+    int rentalCostPerDay;
+    bool available;
+
+public:
+    Car(string carModel, int cost) : model(carModel), rentalCostPerDay(cost), available(true) {}
+
+    void bookCar() {
+        if (available) {
+            available = false;
+            cout << "Car Model: " << model << ", Rental Cost Per Day: " << rentalCostPerDay << ", Availability: Booked" << endl;
+        } else {
+            cout << "Car Model: " << model << " is already booked." << endl;
+        }
+    }
+
+    void returnCar() {
+        if (!available) {
+            available = true;
+            cout << "Car Model: " << model << " has been returned." << endl;
+        } else {
+            cout << "Car Model: " << model << " is already available." << endl;
+        }
+    }
+};
+
+int main() {
+    string model;
+    int cost;
+
+    cout << "Enter car model: ";
+    cin >> model;
+    cout << "Enter rental cost per day: ";
+    cin >> cost;
+
+    Car car(model, cost);
+
+    cout << "Available Cars in the Rental System:" << endl;
+    car.bookCar();
+    car.returnCar();
+
+    return 0;
+}
