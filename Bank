@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+class BankAccount {
+private:
+    long accountNumber;
+    std::string accountHolderName;
+    double balance;
+
+public:
+    BankAccount(long accNum, std::string accName, double bal) : accountNumber(accNum), accountHolderName(accName), balance(bal) {}
+
+    void deposit(double amount) {
+        balance += amount;
+    }
+
+    void withdraw(double amount) {
+        balance -= amount;
+    }
+
+    double getBalance() {
+        return balance;
+    }
+};
+
+int main() {
+    BankAccount account(1234567890, "John Doe", 5000);
+    account.deposit(2000);
+    account.withdraw(1000);
+
+    std::cout << "Account Number: " << accountNumber << std::endl;
+    std::cout << "Account Holder Name: " << accountHolderName << std::endl;
+    std::cout << "Balance: " << account.getBalance() << std::endl;
+
+    return 0;
+}
