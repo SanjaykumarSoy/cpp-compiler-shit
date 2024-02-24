@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+double calculate( double principal, double rate, double time){
+return(principal*rate*time/100);}
+
+int main(){
+    double principal = 5000;
+    double rate = 2.5;
+    double time= 1;
+    double interest = calculate( principal, rate ,time);
+    cout<<" simple interest "<<interest;
+    return 0;
+}
+
