@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int id;
+    vector<double> grades;
+
+    double calculateAverageGrade() {
+        double sum = 0;
+        for (double grade : grades) {
+            sum += grade;
+        }
+        return sum / grades.size();
+    }
+
+    void displayStudentInfo() {
+        cout << "Student Name: " << name << endl;
+        cout << "Student ID: " << id << endl;
+        cout << "Grades:";
+        for (double grade : grades) {
+            cout << " " << grade;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Student student;
+    student.name = "Jane Doe";
+    student.id = 12345;
+    student.grades = {85.5, 90, 87, 92.5};
+
+    cout << "Average Grade: " << student.calculateAverageGrade() << endl;
+
+    student.displayStudentInfo();
+
+    return 0;
+}
