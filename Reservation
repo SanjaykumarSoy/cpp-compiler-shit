@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+class ReservationSystem {
+private:
+    struct Reservation {
+        string reservationId;
+        string eventName;
+        string eventDate;
+        string eventTime;
+    };
+
+    vector<Reservation> reservations;
+
+public:
+    
+    void bookReservation(string reservationId, string eventName, string eventDate, string eventTime) {
+        Reservation newReservation;
+        newReservation.reservationId = reservationId;
+        newReservation.eventName = eventName;
+        newReservation.eventDate = eventDate;
+        newReservation.eventTime = eventTime;
+        reservations.push_back(newReservation);
+        cout << "Reservation booked successfully." << endl;
+    }
+
+    
+    void cancelReservation(string reservationId) {
+        for (int i = 0; i < reservations.size(); i++) {
+            if (reservations[i].reservationId == reservationId) {
+                reservations.erase(reservations.begin() + i);
+                cout << "Reservation canceled successfully." << endl;
+                return;
+            }
+        }
+        cout << "Error: Reservation not found." << endl;
+    }
+
+    
+    void displayReservations() {
+        if (reservations.empty()) {
+            cout << "No reservations to display." << endl;
+            return;
+        }
+        cout << "List of Reservations:\n";
+        for (const auto& reservation : reservations) {
+            cout << "Reservation ID: " << reservation.reservationId << ", Event: " << reservation.eventName << ", Date: " << reservation.eventDate << ", Time: " << reservation.eventTime << endl;
+        }
+    }
+};
+
+int main() {
+    ReservationSystem res;
+
+  
+    res.bookReservation("001", "Concert", "2024-02-25", "20:00");
+
+    
+    res.displayReservations();
+    res.cancelReservations("001");
+
+    
+    res.displayReservation();
+
+    return 0;
+}
