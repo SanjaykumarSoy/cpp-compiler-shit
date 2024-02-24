@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class music{
+    public:
+    void play(const string song, const string artist){
+        cout<<"Now playing"<<song<<"by"<<artist<<endl;
+        
+    }
+    void pause(){
+        cout<<" paused"<<endl;
+    }
+    void stop(){
+        cout<<" stop"<<endl;
+        
+    }
+};
+int main(){
+    music plays;
+    string song, artist, command;
+    cout<<"enter artist=";
+    cin>>artist;
+    cout <<"enter song=";
+    cin>>song;
+    plays.play(song ,artist);
+    cout << "Enter 'pause' to pause the song: ";
+    cin>>command;
+    
+    if (command == "pause") {
+        plays.pause();
+    }
+    
+    plays.stop();
+    
+    return 0;
+
+}
