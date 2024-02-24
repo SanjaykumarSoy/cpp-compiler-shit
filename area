@@ -1,0 +1,51 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+class shape{
+    public:
+     virtual void display() = 0;
+    virtual double calculate() = 0;
+};
+class square: public shape{
+    private:
+    double side;
+    public:
+    square(double s) : side(s) {}
+void display() override {
+            cout << "Shape: Square" <<endl;
+        cout << "Side: " << side << endl;
+        cout << "Area: " << calculate() << endl;
+}
+double calculate() override {
+        return side * side;
+    }};
+    class circle:public shape{
+        private:
+        double radius;
+        public:
+        circle(double r):radius(r){}
+        void display()override{
+            cout<<" shape: circle"<<endl;
+            cout<<" radius: "<<radius<< endl;
+            cout<<" area: "<<calculate()<<endl;
+        }
+        double calculate() override{
+            return M_PI*radius*radius;
+            
+        }
+    };
+    int main(){
+        double side, radius;
+        cout << "Enter the dimensions of the Square:" << endl;
+    cout << "Side: ";
+    cin >> side;
+    square square(side);
+
+    cout << "Enter the dimensions of the Circle:" << endl;
+    cout << "Radius: ";
+    cin >> radius;
+    circle circle(radius);
+    square.display();
+    circle.display();
+    return 0;
+    }
