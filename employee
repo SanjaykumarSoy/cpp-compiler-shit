@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+class Employee {
+public:
+    string name;
+    string employeeID;
+    int salary;
+
+    void raiseSalary(int amount) {
+        salary += amount;
+    }
+
+    void displayDetails() {
+        cout << "Employee Name: " << name << std::endl;
+        cout << "Employee ID: " << employeeID << std::endl;
+        cout << "Salary: " << salary << std::endl;
+    }
+};
+
+int main() {
+    Employee emp;
+    emp.name = "John Doe";
+    emp.employeeID = "E12345";
+    emp.salary = 10000;
+
+    int raiseAmount = 5000;
+    emp.raiseSalary(raiseAmount);
+
+    emp.displayDetails();
+
+    return 0;
+}
