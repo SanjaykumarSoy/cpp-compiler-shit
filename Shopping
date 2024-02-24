@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+#include <map>
+using namespace std;
+
+class ShoppingCart {
+private:
+    map<string, pair<double, int>> items; // Map to store items with their prices and quantities
+
+public:
+  
+    void addItem(string itemName, double price, int quantity) {
+        items[itemName] = make_pair(price, quantity);
+        cout << "Item added to cart: " << itemName << ", Price: " << price << ", Quantity: " << quantity << endl;
+    }
+
+
+    void removeItem(string itemName, int quantityToRemove) {
+        if (items.find(itemName) != items.end()) {
+            if (items[itemName].second >= quantityToRemove) {
+                items[itemName].second -= quantityToRemove;
+                cout << "Item removed from cart: " << itemName << ", Remaining Quantity: " << items[itemName].second << endl;
+            } else {
+                cout << "Error: Trying to remove more quantity than available." << endl;
+            }
+        } else {
+            cout << "Error: Item not found in cart." << endl;
+        }
+    }
+
+    double calculateTotalCost() {
+        double totalCost = 0.0;
+        for (auto it = items.begin(); it != items.end(); ++it) {
+            totalCost += it->second.first * it->second.second; // price * quantity
+        }
+        return totalCost;
+    }
+};
+
+int main() {
+    ShoppingCart cart;
+
+    
+    cout << "Adding items to the cart." << endl;
+    cart.addItem("Laptop", 1000, 2);
+
+    
+    cout << "\nRemoving items from the cart." << endl;
+    cart.removeItem("Laptop", 1);
+
+    
+    cout << "\nTotal Cost: $" << cart.calculateTotalCost() << endl;
+
+    return 0;
+}
