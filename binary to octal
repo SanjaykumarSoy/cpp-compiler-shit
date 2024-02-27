@@ -1,0 +1,12 @@
+#include <iostream>
+#include <bitset>
+using namespace std;
+
+int main() {
+    string binaryNum = "110101";
+    bitset<32> bits(binaryNum);
+    unsigned long decimalNum = bits.to_ulong();
+    cout << oct << decimalNum << endl;
+    
+    return 0;
+}
