@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+void checkValue(int value) {
+    if (value < 0) {
+        throw "Negative Value Exception";
+    }
+    cout << "Value is positive: " << value << endl;
+}
+
+int main() {
+    try {
+        checkValue(10);
+        checkValue(-5);
+    } catch (const char* msg) {
+        cerr << "Error: " << msg << endl;
+    }
+
+    return 0;
+}
