@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+int absolute(int n){
+  return (n >= 0) ? n : -n;
+}
+float absolute( float n){
+  return (n>=0.0)? n: -n;
+}
+int main(){
+  int num= -5;
+  float num1=-5.4;
+  cout << "Absolute value of " << num << " is " << absolute(num) << endl;
+  cout<<" absolute value of "<< num1 << " is  "<< absolute(num1)<<endl;
+return 0;
+}
