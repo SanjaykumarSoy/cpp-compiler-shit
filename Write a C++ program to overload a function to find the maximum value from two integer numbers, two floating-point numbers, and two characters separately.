@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int max(int a, int b){
+  return (a<b)?a:b;
+}
+float max(float a, float b){
+  return (a<b)? a:b;
+}
+char max( char a, char b){
+  return (a<b)? a:b;
+}
+int main(){
+  cout<<" max in number="<<max(10, 50)<<endl;
+  cout<<" max in float="<<max(9.8, 7.3)<<endl;
+  cout<<" max in char="<<max( 'a',' z');
+  return 0;
+}
