@@ -1,0 +1,19 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+using namespace std;
+double mean(int arr[], int size){
+  sort(arr, arr+size);
+  if(size%2==0){
+    return (arr[size / 2 - 1] + arr[size / 2]) / 2.0;
+  }else{
+    return arr[size/2];
+  }
+}
+int main(){
+  int arr[]={1,2,3,4,5};
+  int size= sizeof(arr)/sizeof(arr[0]);
+  double medium= mean(arr, size);
+  cout<<" medium="<<medium;
+  return 0;
+}
