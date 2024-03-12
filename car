@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class vehicle{
+  public:
+  string make;
+  string model;
+  public:
+  vehicle(const string& make , const string& model):make(make),model(model){}
+  void rent()const{
+    cout<<"renting "<<make<<" "<<model<<endl;
+  }
+  void sell()const{
+    cout<<"selling "<<make<<" "<<model<<endl;
+  }
+};
+int main(){
+  vehicle  car("Toyota", "Corolla");
+    vehicle bike("Honda", "CBR500R");
+    vehicle truck("Ford", "F-150");
+  car.sell();
+  car.rent();
+  bike.rent();
+  bike.sell();
+  truck.sell();
+  truck.rent();
+  return 0;
+}
