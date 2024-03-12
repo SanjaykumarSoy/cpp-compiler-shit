@@ -1,0 +1,20 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class books{
+  private:
+  string author;
+  string book;
+  public:
+  books(string a, string b):author(a),book(b){
+    cout<<" creating book  "<<book<<" by "<<author<<endl;
+  }
+  ~books(){
+    cout<<" book destroyed"<<endl;
+  }
+};
+int main(){
+  books b1("cbse maths 12"," jeera");
+  books b2("china china ", " ganga ");
+  return 0;
+}
